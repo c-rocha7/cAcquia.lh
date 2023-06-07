@@ -62,7 +62,7 @@ class RSVPForm extends FormBase {
 	 */
 	public function validateForm(array &$form, FormStateInterface $form_state) {
 		$value = $form_state->getValue('email');
-		if ( !(\Drupal::service('email.validato')->isValid($value)) ) {
+		if ( !(\Drupal::service('email.validator')->isValid($value)) ) {
 			$form_state->setErrorByName('email',
 				$this->t('It appears that %mail is not a valid email. Please try again', ['%mail' => $value]));
 		}
@@ -89,9 +89,9 @@ class RSVPForm extends FormBase {
 
 			// Obtain values as entered into the Form.
 			$nid = $form_state->getValue('nid');
-			$email = $form_state->getValue('emial');
+			$email = $form_state->getValue('email');
 
-			$current_time = Drupal::time()->getRequestTime();
+			$current_time = \Drupal::time()->getRequestTime();
 			// End Phase 1
 
 			// Begin Phase 2: Save the values to the database
