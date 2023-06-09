@@ -35,7 +35,7 @@ class ReportController extends ControllerBase {
 			// Select these specific fields for the output.
 			$select_query->addField('u', 'name', 'username');
 			$select_query->addField('n', 'title');
-			$select_query->addField('r', 'email');
+			$select_query->addField('r', 'mail');
 
 			// Note that fetchAll() and fetchAllAssoc() will, by default, fetch using
 			// whatever fetch node was set on the query
